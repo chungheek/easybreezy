@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Temperature from './components/Temperature';
+import Temperature from './components/Temperature/Temperature';
 
 function App() {
   return (
