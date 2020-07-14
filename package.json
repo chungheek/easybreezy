@@ -1,6 +1,9 @@
 {
   "name": "easybreezy",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.16.x"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -17,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm install -g serve"
   },
   "eslintConfig": {
     "extends": "react-app"
