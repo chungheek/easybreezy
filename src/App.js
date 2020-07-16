@@ -3,7 +3,6 @@ import HttpsRedirect from 'react-https-redirect'
 import logo from './logo.svg';
 import './App.css';
 import Temperature from './components/Temperature/Temperature';
-import WeekForecast from './components/WeekForecast/WeekForecast';
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Temperature />
-          <WeekForecast />
           <img src={logo} className="App-logo" alt="logo" />
         </header>
       </div>
