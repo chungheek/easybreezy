@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import Temperature from '../Temperature/Temperature';
 import ForecastDay from '../ForecastDay/ForecastDay';
-import './styles.scss';
+import './ForecastDay.scss';
 
 // TODO: Each instance of the Temperature component will need
 // to instead be a Day component that will have its own style
