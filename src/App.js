@@ -3,6 +3,7 @@ import HttpsRedirect from 'react-https-redirect'
 import logo from './logo.svg';
 import './App.css';
 import Temperature from './components/Temperature/Temperature';
+import WeekForecast from './components/WeekForecast/WeekForecast';
 
 function App() {
   return (
