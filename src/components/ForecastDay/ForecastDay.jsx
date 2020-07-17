@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Temperature from '../Temperature/Temperature';
-import './styles.scss';
+import './ForecastDay.scss';
 
 class ForecastDay extends Component {
   render() {
