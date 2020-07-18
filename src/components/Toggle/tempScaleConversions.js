@@ -14,7 +14,3 @@ export let kelvinToCelsius = (tempInK) => {
 export let kelvinToFahrenheit = (tempInK) => {
     return celsiusToFahrenheit(kelvinToCelsius(tempInK));
 };
-
-
-
-
