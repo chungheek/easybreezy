@@ -3,7 +3,7 @@ import './Today.scss';
 import temp from '../../API/temperatureApi';
 import Temperature from '../Temperature/Temperature';
 
-const today = () => {
+const Today = () => {
     return (
     <div className="today-container">
         <h1>Today's Forecast</h1>
@@ -15,4 +15,4 @@ const today = () => {
     )
 };
 
-export default today;
+export default Today;
