@@ -2,7 +2,7 @@ import React from 'react';
 import HttpsRedirect from 'react-https-redirect'
 import logo from './logo.svg';
 import './App.css';
-import Temperature from './components/Temperature/Temperature';
+import Today from './components/Today/Today';
 import WeekForecast from './components/WeekForecast/WeekForecast';
 import CityCountryForm from './components/CityCountryForm/CityCountryForm';
 
@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <CityCountryForm />
-          <Temperature />
+          <Today />
           <WeekForecast />
           <img src={logo} className="App-logo" alt="logo" />
         </header>
