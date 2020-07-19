@@ -10,7 +10,14 @@ const temp =
     "temp_max": 297.15,
     "pressure": 1015,
     "humidity": 88
-  }
+  },
+  "weather": 
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01d"
+    }
 }
 
 module.exports = temp;

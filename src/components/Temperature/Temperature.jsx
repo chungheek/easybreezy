@@ -6,7 +6,7 @@ class Temperature extends Component {
   render() {
     return(
       <div className="temp">
-        Temperature: {temp.main.temp} <br />
+        {temp.main.temp}° <br />
       </div>
     );
   }
