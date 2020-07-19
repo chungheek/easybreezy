@@ -1,0 +1,44 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'start' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.2
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle easybreezy@0.1.0~prestart: easybreezy@0.1.0
+6 silly lifecycle easybreezy@0.1.0~prestart: no script for prestart, continuing
+7 info lifecycle easybreezy@0.1.0~start: easybreezy@0.1.0
+8 verbose lifecycle easybreezy@0.1.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle easybreezy@0.1.0~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/nfs/stak/users/tensingn/CS-361/groupProj/easybreezy/node_modules/.bin:/usr/lib64/qt-3.3/bin:/nfs/stak/users/tensingn/perl5/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/nfs/stak/users/tensingn/.composer/vendor/bin:/opt/dell/srvadmin/bin:/usr/local/bin:/usr/local/apps/bin:/nfs/stak/users/tensingn/bin:.
+10 verbose lifecycle easybreezy@0.1.0~start: CWD: /nfs/stak/users/tensingn/CS-361/groupProj/easybreezy
+11 silly lifecycle easybreezy@0.1.0~start: Args: [ '-c', 'react-scripts start' ]
+12 info lifecycle easybreezy@0.1.0~start: Failed to exec start script
+13 verbose stack Error: easybreezy@0.1.0 start: `react-scripts start`
+13 verbose stack spawn ENOENT
+13 verbose stack     at ChildProcess.<anonymous> (/usr/lib/node_modules/npm/lib/utils/spawn.js:33:16)
+13 verbose stack     at emitTwo (events.js:106:13)
+13 verbose stack     at ChildProcess.emit (events.js:191:7)
+13 verbose stack     at maybeClose (internal/child_process.js:886:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+14 verbose pkgid easybreezy@0.1.0
+15 verbose cwd /nfs/stak/users/tensingn/CS-361/groupProj/easybreezy/src
+16 error Linux 3.10.0-1062.9.1.el7.x86_64
+17 error argv "/usr/bin/node" "/usr/bin/npm" "start"
+18 error node v6.10.2
+19 error npm  v3.10.10
+20 error file sh
+21 error code ELIFECYCLE
+22 error errno ENOENT
+23 error syscall spawn
+24 error easybreezy@0.1.0 start: `react-scripts start`
+24 error spawn ENOENT
+25 error Failed at the easybreezy@0.1.0 start script 'react-scripts start'.
+25 error Make sure you have the latest version of node.js and npm installed.
+25 error If you do, this is most likely a problem with the easybreezy package,
+25 error not with npm itself.
+25 error Tell the author that this fails on your system:
+25 error     react-scripts start
+25 error You can get information on how to open an issue for this project with:
+25 error     npm bugs easybreezy
+25 error Or if that isn't available, you can get their info via:
+25 error     npm owner ls easybreezy
+25 error There is likely additional logging output above.
+26 verbose exit [ 1, true ]
