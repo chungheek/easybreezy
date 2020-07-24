@@ -1,16 +1,23 @@
 import React from 'react';
+import HttpsRedirect from 'react-https-redirect'
 import logo from './logo.svg';
 import './App.css';
-import Temperature from './components/Temperature/Temperature';
+import Today from './components/Today/Today';
+import WeekForecast from './components/WeekForecast/WeekForecast';
+import CityCountryForm from './components/CityCountryForm/CityCountryForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Temperature />
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <HttpsRedirect>
+      <div className="App">
+        <header className="App-header">
+          <CityCountryForm />
+          <Today />
+          <WeekForecast />
+          <img src={logo} className="App-logo" alt="logo" />
+        </header>
+      </div>
+    </HttpsRedirect>
   );
 }
 

@@ -43,7 +43,7 @@ class Temperature extends Component {
       <div>
         <FormInput value="Atlanta" callBack={this.formCallBack}/>
         <div className="temp">
-          Temperature: {this.state.temperature} <br />
+          Temperature: {this.state.temperature}°<br />
         </div>
       </div>
       
