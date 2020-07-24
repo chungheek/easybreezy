@@ -10,22 +10,24 @@ class WeekForecast extends Component {
     var day = new Date();
 
     return(
-      <div className="forecast">
-      	Next 7 Days:
-        <ForecastDay day={day} pad={1}/>
-        <br/>
-        <ForecastDay day={day} pad={2}/>
-        <br/>
-        <ForecastDay day={day} pad={3}/>
-        <br/>        
-        <ForecastDay day={day} pad={4}/>
-        <br/>
-        <ForecastDay day={day} pad={5}/>
-        <br/>
-        <ForecastDay day={day} pad={6}/>
-        <br/>       
-        <ForecastDay day={day} pad={7}/>
-      </div>
+      (this.props.temperature &&
+        <div className="forecast">
+          Next 7 Days:
+          <ForecastDay day={day} pad={1} temperature={this.props.temperature} />
+          <br/>
+          <ForecastDay day={day} pad={2} temperature={this.props.temperature} />
+          <br/>
+          <ForecastDay day={day} pad={3} temperature={this.props.temperature} />
+          <br/>        
+          <ForecastDay day={day} pad={4} temperature={this.props.temperature} />
+          <br/>
+          <ForecastDay day={day} pad={5} temperature={this.props.temperature} />
+          <br/>
+          <ForecastDay day={day} pad={6} temperature={this.props.temperature} />
+          <br/>       
+          <ForecastDay day={day} pad={7} temperature={this.props.temperature} />
+        </div>
+      )
     );
   }
 }
