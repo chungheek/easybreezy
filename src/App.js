@@ -4,6 +4,7 @@ import './App.css';
 import Today from './components/Today/Today';
 import WeekForecast from './components/WeekForecast/WeekForecast';
 import CityForm from './components/CityForm/CityForm';
+import { kelvinToFahrenheit } from './components/Toggle/tempScaleConversions';
 
 class App extends Component {
   constructor() {
@@ -15,6 +16,10 @@ class App extends Component {
       apiResult: Object,
     };
   
+  }
+
+  convertToFarenheit(temp) {
+    return (temp == null ? null : kelvinToFahrenheit(temp));
   }
 
   forceUpdateHandler() {
@@ -45,8 +50,8 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <CityForm value="Atlanta" callBack={this.formCallBack} />
-            <Today temperature={this.state.temperature} />
-            <WeekForecast temperature={this.state.temperature}/>
+            <Today temperature={this.convertToFarenheit(this.state.temperature)} />
+            <WeekForecast temperature={this.convertToFarenheit(this.state.temperature)}/>
           </header>
         </div>
       </HttpsRedirect>
