@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
-import temp from '../../API/temperatureApi';
-import './styles.scss';
+import React from 'react';
+import './Temperature.scss';
 
-class Temperature extends Component {
-  render() {
-    return(
-      <div className="temp">
-        {temp.main.temp}° <br />
+const Temperature = (props) => {
+  return(
+    (props.temperature &&
+      <div>
+        <div className="temp">
+          {props.temperature}°<br />
+        </div>
       </div>
-    );
-  }
+    )
+  );
 }
 
 export default Temperature;
