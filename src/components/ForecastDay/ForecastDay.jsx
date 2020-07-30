@@ -4,12 +4,14 @@ import './ForecastDay.scss';
 
 class ForecastDay extends Component {
   render() {
-  	const day = this.props.day;
-  	const pad = this.props.pad;
+    const pad = this.props.pad;
+    const today = new Date();
+    const futureDay = new Date(today);
+    futureDay.setDate(futureDay.getDate() + pad);
 
-  	var dd = String(day.getDate() + pad).padStart(2, '0');
-    var mm = String(day.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = day.getFullYear();
+  	var dd = String(futureDay.getDate()).padStart(2, '0');
+    var mm = String(futureDay.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = futureDay.getFullYear();
     var stringDay = mm + '/' + dd + '/' + yyyy;
 
     return(
