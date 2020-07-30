@@ -8,24 +8,26 @@ import './WeekForecast.scss';
 class WeekForecast extends Component {
   render() {
     var day = new Date();
+    const temperature = this.props.temperature;
 
     return(
-      <div className="forecast">
-      	Next 7 Days:
-        <ForecastDay day={day} pad={1}/>
-        <br/>
-        <ForecastDay day={day} pad={2}/>
-        <br/>
-        <ForecastDay day={day} pad={3}/>
-        <br/>        
-        <ForecastDay day={day} pad={4}/>
-        <br/>
-        <ForecastDay day={day} pad={5}/>
-        <br/>
-        <ForecastDay day={day} pad={6}/>
-        <br/>       
-        <ForecastDay day={day} pad={7}/>
-      </div>
+      (temperature &&
+        <div className="forecast">
+          Next 7 Days:
+          <ForecastDay day={day} pad={1} temperature={temperature.list[1].temp.day} />
+          <br/>
+          <ForecastDay day={day} pad={2} temperature={temperature.list[2].temp.day} />
+          <br/>
+          <ForecastDay day={day} pad={3} temperature={temperature.list[3].temp.day} />
+          <br/>
+          <ForecastDay day={day} pad={4} temperature={temperature.list[4].temp.day} />
+          <br/>
+          <ForecastDay day={day} pad={5} temperature={temperature.list[5].temp.day} />
+          <br/>
+          <ForecastDay day={day} pad={6} temperature={temperature.list[6].temp.day} />
+          <br/>
+        </div>
+      )
     );
   }
 }

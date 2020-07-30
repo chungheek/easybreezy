@@ -30,7 +30,7 @@ class Toggle extends Component {
         if(this.state.celsius) {
             return(
                 <div className="toggle">
-                    {celsiusTemp}
+                    {celsiusTemp}°
                     <br/>
                     <button class="actual-toggle" type="checkbox" onClick={this.toggleCelsius}>Click for Fahrenheit!</button>
                 </div>
@@ -39,7 +39,7 @@ class Toggle extends Component {
         else {
             return(
                 <div className="toggle">
-                    {fahrenheitTemp}
+                    {fahrenheitTemp}°
                     <br/>
                     <button class="actual-toggle" type="checkbox" onClick={this.toggleCelsius}>Click for Celsius!</button>
                 </div>

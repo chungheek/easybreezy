@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
-import temp from '../../API/temperatureApi';
-import './styles.scss';
-import Toggle from '../Toggle/Toggle';
+import React from 'react';
+import './Temperature.scss';
 
-class Temperature extends Component {
-  render() {
-    return(
-      <div className="temp"> 
-      Temperature:
-        <Toggle
-          temp={temp.main.temp} 
-          />
+const Temperature = (props) => {
+  return(
+    (props.temperature &&
+      <div>
+        <div className="temp">
+          {props.temperature}°<br />
+        </div>
       </div>
-      
-    );
-  }
+    )
+  );
 }
 
 export default Temperature;
