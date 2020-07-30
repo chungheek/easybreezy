@@ -2,6 +2,7 @@ import React from 'react';
 import './Today.scss';
 import temp from '../../API/temperatureApi';
 import Temperature from '../Temperature/Temperature';
+import WeatherDescription from '../WeatherDescription/WeatherDescription'
 
 const Today = (props) => {
     return (
@@ -10,6 +11,7 @@ const Today = (props) => {
         <p>New York, New York</p>
         <p>{temp.weather.main}</p>
         <Temperature temperature={props.temperature} />
+        <WeatherDescription weatherdescription={props.weatherdescription} />
         <p>Feels like: {temp.main.feels_like}°</p>
     </div>
     )
