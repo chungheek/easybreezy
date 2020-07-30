@@ -14,17 +14,17 @@ class WeekForecast extends Component {
       (temperature &&
         <div className="forecast">
           Next 7 Days:
-          <ForecastDay day={day} pad={1} temperature={temperature.list[1].temp.day} />
+          <ForecastDay day={day} pad={1} temperature={temperature[1]} />
           <br/>
-          <ForecastDay day={day} pad={2} temperature={temperature.list[2].temp.day} />
+          <ForecastDay day={day} pad={2} temperature={temperature[2]} />
           <br/>
-          <ForecastDay day={day} pad={3} temperature={temperature.list[3].temp.day} />
+          <ForecastDay day={day} pad={3} temperature={temperature[3]} />
           <br/>
-          <ForecastDay day={day} pad={4} temperature={temperature.list[4].temp.day} />
+          <ForecastDay day={day} pad={4} temperature={temperature[4]} />
           <br/>
-          <ForecastDay day={day} pad={5} temperature={temperature.list[5].temp.day} />
+          <ForecastDay day={day} pad={5} temperature={temperature[5]} />
           <br/>
-          <ForecastDay day={day} pad={6} temperature={temperature.list[6].temp.day} />
+          <ForecastDay day={day} pad={6} temperature={temperature[6]} />
           <br/>
         </div>
       )

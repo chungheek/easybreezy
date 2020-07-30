@@ -18,8 +18,18 @@ class App extends Component {
   
   }
 
-  convertToFarenheit(temp) {
-    return (temp == null ? null : kelvinToFahrenheit(temp));
+  temperatureArray() {
+    var tempArray = [];
+    if(this.state.weather === null) return null;
+    for (var i=0; i < 7; i++) {
+      let temp = this.state.weather.list[i].temp.day;
+      tempArray.push(kelvinToFahrenheit(temp).toFixed(1));
+    }
+    return tempArray;
+  }
+
+  convertToFarenheit() {
+    return (this.state.temperature == null ? null : kelvinToFahrenheit(this.state.temperature).toFixed(1));
   }
 
   forceUpdateHandler() {
@@ -50,8 +60,8 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <CityForm value="Atlanta" callBack={this.formCallBack} />
-            <Today temperature={this.convertToFarenheit(this.state.temperature)} />
-            <WeekForecast temperature={this.state.weather}/>
+            <Today temperature={this.convertToFarenheit()} />
+            <WeekForecast temperature={this.temperatureArray()}/>
           </header>
         </div>
       </HttpsRedirect>
