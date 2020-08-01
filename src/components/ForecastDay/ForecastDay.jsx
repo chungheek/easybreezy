@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Temperature from '../Temperature/Temperature';
 import './ForecastDay.scss';
+import WeatherDescription from '../WeatherDescription/WeatherDescription'
 
 class ForecastDay extends Component {
   render() {
@@ -15,6 +16,7 @@ class ForecastDay extends Component {
     return(
       <div className="forecastday">
       	{stringDay}
+        <WeatherDescription weatherDescription={this.props.weatherDescription} />
         <Temperature temperature={this.props.temperature}/>
       </div>
     );

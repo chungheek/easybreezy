@@ -14,6 +14,7 @@ class App extends Component {
       location: 'Atlanta',
       temperature: null,
       weather: null,
+      weatherDescription: null
     };
   
   }
@@ -50,6 +51,7 @@ class App extends Component {
       this.setState({
         weather: response,
         temperature: response.list[0].temp.day,
+        weatherDescription: response.list[0].weather[0].main
       })
     }).catch(console.log("DEF NOT OKAY"))
   }
@@ -60,8 +62,14 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <CityForm value="Atlanta" callBack={this.formCallBack} />
-            <Today temperature={this.convertToFarenheit()} />
-            <WeekForecast temperature={this.temperatureArray()}/>
+            <Today
+              temperature={this.convertToFarenheit()} 
+              weatherDescription={this.state.weatherDescription}
+            />
+            <WeekForecast 
+              temperature={this.temperatureArray()}
+              weather={this.state.weather}
+            />
           </header>
         </div>
       </HttpsRedirect>
