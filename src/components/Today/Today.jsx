@@ -3,6 +3,7 @@ import './Today.scss';
 import temp from '../../API/temperatureApi';
 import Temperature from '../Temperature/Temperature';
 import WeatherDescription from '../WeatherDescription/WeatherDescription'
+import Toggle from '../Toggle/Toggle'
 
 const Today = (props) => {
     return (
@@ -12,7 +13,8 @@ const Today = (props) => {
         <p>{temp.weather.main}</p>
         <WeatherDescription weatherdescription={props.weatherdescription} />
         <Temperature temperature={props.temperature} />
-        <p>Feels like: {temp.main.feels_like}°</p>
+        Feels like: 
+        <Toggle temp={temp.main.feels_like}/>
     </div>
     )
 };
