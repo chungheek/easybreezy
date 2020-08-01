@@ -52,7 +52,7 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <CityForm value="Atlanta" callBack={this.formCallBack} />
-            <Today location={this.state.location} temperature={this.convertToFarenheit(this.state.temperature)} humidity={this.state.humidity}/>
+            <Today location={this.state.location} temperature={this.convertToFarenheit(this.state.temperature)} humidity={this.state.humidity}/>            
             <WeekForecast temperature={this.state.weather}/>
           </header>
         </div>
