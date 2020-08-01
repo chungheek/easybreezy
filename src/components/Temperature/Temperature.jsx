@@ -1,5 +1,5 @@
-import React from "react";
-import "./Temperature.scss";
+import React from 'react';
+import './Temperature.scss';
 
 const Temperature = (props) => {
   return (

@@ -1,6 +1,6 @@
-import React from "react";
-import "./Humidity.scss";
-import humidity from "../images/humidity.png";
+import React from 'react';
+import './Humidity.scss';
+import humidity from '../images/humidity.png';
 
 class Humidity extends React.Component {
   render() {

@@ -1,10 +1,10 @@
-import React from "react";
-import "./Today.scss";
-import temp from "../../API/temperatureApi";
-import Temperature from "../Temperature/Temperature";
-import Humidity from "../Humidity/Humidity";
-import WeatherDescription from "../WeatherDescription/WeatherDescription";
-import Toggle from "../Toggle/Toggle";
+import React from 'react';
+import './Today.scss';
+import temp from '../../API/temperatureApi';
+import Temperature from '../Temperature/Temperature';
+import Humidity from '../Humidity/Humidity';
+import WeatherDescription from '../WeatherDescription/WeatherDescription';
+import Toggle from '../Toggle/Toggle';
 
 const Today = (props) => {
   return (

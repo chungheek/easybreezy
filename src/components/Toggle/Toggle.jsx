@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { kelvinToCelsius, celsiusToFahrenheit } from "./tempScaleConversions";
-import "./Toggle.scss";
+import React, { Component } from 'react';
+import { kelvinToCelsius, celsiusToFahrenheit } from './tempScaleConversions';
+import './Toggle.scss';
 
 class Toggle extends Component {
   constructor(props) {

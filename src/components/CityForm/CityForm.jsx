@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./CityForm.scss";
+import React, { Component } from 'react';
+import './CityForm.scss';
 
 class CityForm extends Component {
   constructor(props) {

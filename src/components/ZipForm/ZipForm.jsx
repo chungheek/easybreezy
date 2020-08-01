@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./ZipForm.scss";
+import React, { Component } from 'react';
+import './ZipForm.scss';
 
 class ZipForm extends Component {
   constructor(props) {

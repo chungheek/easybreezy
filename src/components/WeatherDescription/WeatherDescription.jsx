@@ -1,5 +1,5 @@
-import React from "react";
-import "./WeatherDescription.scss";
+import React from 'react';
+import './WeatherDescription.scss';
 
 const WeatherDescription = (props) => {
   return (
