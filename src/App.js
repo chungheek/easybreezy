@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HttpsRedirect from 'react-https-redirect'
+import HttpsRedirect from 'react-https-redirect';
 import './App.css';
 import Today from './components/Today/Today';
 import WeekForecast from './components/WeekForecast/WeekForecast';
@@ -13,39 +13,55 @@ class App extends Component {
     this.state = {
       location: 'Atlanta',
       temperature: null,
-      weather: null, 
+      weather: null,
       humidity: null,
-      weatherDescription: null
+      weatherDescription: null,
+      cityName: null,
     };
-
   }
 
-  convertToFarenheit(temp) {
-    return (temp == null ? null : kelvinToFahrenheit(temp));
+  temperatureArray() {
+    var tempArray = [];
+    if (this.state.weather === null) return null;
+    for (var i = 0; i < 7; i++) {
+      let temp = this.state.weather.list[i].temp.day;
+      tempArray.push(kelvinToFahrenheit(temp).toFixed(1));
+    }
+    return tempArray;
+  }
+
+  convertToFarenheit() {
+    return this.state.temperature == null
+      ? null
+      : kelvinToFahrenheit(this.state.temperature).toFixed(1);
   }
 
   forceUpdateHandler() {
     this.forceUpdate();
-  };
-
-  formCallBack = (locationData) => {
-    this.setState({ location: locationData });
-    this.getForecast();
   }
 
-  getForecast() {
-    const url = process.env.REACT_APP_OPEN_MAP_API + this.state.location + process.env.REACT_APP_ID;
+  formCallBack = (locationData) => {
+    this.getForecast(locationData);
+  };
+
+  getForecast(locationData) {
+    const url =
+      process.env.REACT_APP_OPEN_MAP_API +
+      locationData +
+      process.env.REACT_APP_ID;
     fetch(url)
-    .then(response => response.json())
-    .catch(console.log("NOT OKAY"))
-    .then(response => {
-      this.setState({
-        weather: response,
-        temperature: response.list[0].temp.day, 
-        humidity: response.list[0].humidity,
-        weatherDescription: response.list[0].weather[0].main
+      .then((response) => response.json())
+      .catch(console.log('There was an issue with the API call'))
+      .then((response) => {
+        this.setState({
+          weather: response,
+          temperature: response.list[0].temp.day,
+          humidity: response.list[0].humidity,
+          weatherDescription: response.list[0].weather[0].main,
+          cityName: response.city.name,
+        });
       })
-    }).catch(console.log("DEF NOT OKAY"))
+      .catch(console.log('GetForeCast() failed'));
   }
 
   render() {
@@ -53,13 +69,17 @@ class App extends Component {
       <HttpsRedirect>
         <div className="App">
           <header className="App-header">
-            <CityForm value="Atlanta" callBack={this.formCallBack} />         
-            <Today 
-              location={this.state.location} 
-              temperature={this.convertToFarenheit(this.state.temperature)} 
+            <CityForm value="Atlanta" callBack={this.formCallBack} />
+            <Today
+              location={this.state.cityName}
+              temperature={this.convertToFarenheit()}
               weatherDescription={this.state.weatherDescription}
-              humidity={this.state.humidity}/>
-            <WeekForecast temperature={this.state.weather}/>
+              humidity={this.state.humidity}
+            />
+            <WeekForecast
+              temperature={this.temperatureArray()}
+              weather={this.state.weather}
+            />
           </header>
         </div>
       </HttpsRedirect>
