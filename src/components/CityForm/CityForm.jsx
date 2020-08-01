@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './CityForm.scss';
+import React, { Component } from "react";
+import "./CityForm.scss";
 
 class CityForm extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class CityForm extends Component {
 
   handleChange(event) {
     this.setState({
-      location: event.target.value
+      location: event.target.value,
     });
   }
 
@@ -24,10 +24,14 @@ class CityForm extends Component {
   }
 
   render() {
-    return(
-      <form className='city-form' onSubmit={this.handleSubmit}>
-        Please enter a city name: <br/>
-        <input type="text" value={this.state.location} onChange={this.handleChange} />
+    return (
+      <form className="city-form" onSubmit={this.handleSubmit}>
+        Please enter a city name: <br />
+        <input
+          type="text"
+          value={this.state.location}
+          onChange={this.handleChange}
+        />
         <input type="submit" value="Submit" />
       </form>
     );
