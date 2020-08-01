@@ -10,7 +10,7 @@ const Today = (props) => {
         <h1>Today's Forecast</h1>
         <p>New York, New York</p>
         <p>{temp.weather.main}</p>
-        <WeatherDescription weatherdescription={props.weatherdescription} />
+        <WeatherDescription weatherDescription={props.weatherDescription} />
         <Temperature temperature={props.temperature} />
         <p>Feels like: {temp.main.feels_like}°</p>
     </div>

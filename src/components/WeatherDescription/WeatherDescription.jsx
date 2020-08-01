@@ -3,10 +3,10 @@ import './WeatherDescription.scss';
 
 const WeatherDescription = (props) => {
   return(
-    (props.weatherdescription &&
+    (props.weatherDescription &&
       <div>
-        <div className="weatherdescription">
-          {props.weatherdescription}<br />
+        <div className="weatherDescription">
+          {props.weatherDescription}<br />
         </div>
       </div>
     )

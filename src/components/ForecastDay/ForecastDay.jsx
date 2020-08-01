@@ -16,7 +16,7 @@ class ForecastDay extends Component {
     return(
       <div className="forecastday">
       	{stringDay}
-        <WeatherDescription weatherdescription={this.props.weatherdescription} />
+        <WeatherDescription weatherDescription={this.props.weatherDescription} />
         <Temperature temperature={this.props.temperature}/>
       </div>
     );
