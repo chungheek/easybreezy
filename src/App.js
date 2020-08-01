@@ -13,10 +13,10 @@ class App extends Component {
     this.state = {
       location: 'Atlanta',
       temperature: null,
-      weather: null,
+      weather: null, 
       humidity: null
     };
-  
+
   }
 
   convertToFarenheit(temp) {
@@ -41,7 +41,7 @@ class App extends Component {
       this.setState({
         weather: response,
         temperature: response.list[0].temp.day, 
-        humidity: response.list[0].temp.day
+        humidity: response.list[0].humidity
       })
     }).catch(console.log("DEF NOT OKAY"))
   }

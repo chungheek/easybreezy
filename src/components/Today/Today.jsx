@@ -8,7 +8,7 @@ const Today = (props) => {
     return (
     <div className="today-container">
         <h1>Today's Forecast</h1>
-        <p>New York, New York</p>
+        <p>{props.location}</p>
         <p>{temp.weather.main}</p>
         <Temperature temperature={props.temperature} />
         <Humidity humidity={props.humidity} />
