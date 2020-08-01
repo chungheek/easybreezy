@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './ZipForm.scss';
+import React, { Component } from "react";
+import "./ZipForm.scss";
 
 class ZipForm extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class ZipForm extends Component {
 
   handleChange(event) {
     this.setState({
-      zipCode: event.target.value
+      zipCode: event.target.value,
     });
   }
 
@@ -24,10 +24,14 @@ class ZipForm extends Component {
   }
 
   render() {
-    return(
-      <form className='zip-form' onSubmit={this.handleSubmit}>
-        Please enter a ZIP code: <br/>
-        <input type="text" value={this.state.zipCode} onChange={this.handleChange} />
+    return (
+      <form className="zip-form" onSubmit={this.handleSubmit}>
+        Please enter a ZIP code: <br />
+        <input
+          type="text"
+          value={this.state.zipCode}
+          onChange={this.handleChange}
+        />
         <input type="submit" value="Submit" />
       </form>
     );
