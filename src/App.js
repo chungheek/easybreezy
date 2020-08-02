@@ -1,24 +1,90 @@
-import React from 'react';
-import HttpsRedirect from 'react-https-redirect'
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import HttpsRedirect from 'react-https-redirect';
 import './App.css';
 import Today from './components/Today/Today';
 import WeekForecast from './components/WeekForecast/WeekForecast';
-import CityCountryForm from './components/CityCountryForm/CityCountryForm';
+import CityForm from './components/CityForm/CityForm';
+import { kelvinToFahrenheit } from './components/Toggle/tempScaleConversions';
 
-function App() {
-  return (
-    <HttpsRedirect>
-      <div className="App">
-        <header className="App-header">
-          <CityCountryForm />
-          <Today />
-          <WeekForecast />
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-      </div>
-    </HttpsRedirect>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
+    this.state = {
+      location: 'Atlanta',
+      temperature: null,
+      weather: null,
+      humidity: null,
+      weatherDescription: null,
+      cityName: null,
+    };
+  }
+
+  temperatureArray() {
+    var tempArray = [];
+    if (this.state.weather === null) return null;
+    for (var i = 0; i < 7; i++) {
+      let temp = this.state.weather.list[i].temp.day;
+      tempArray.push(kelvinToFahrenheit(temp).toFixed(1));
+    }
+    return tempArray;
+  }
+
+  convertToFarenheit() {
+    return this.state.temperature == null
+      ? null
+      : kelvinToFahrenheit(this.state.temperature).toFixed(1);
+  }
+
+  forceUpdateHandler() {
+    this.forceUpdate();
+  }
+
+  formCallBack = (locationData) => {
+    this.getForecast(locationData);
+  };
+
+  getForecast(locationData) {
+    const url =
+      process.env.REACT_APP_OPEN_MAP_API +
+      locationData +
+      process.env.REACT_APP_ID;
+    fetch(url)
+      .then((response) => response.json())
+      .catch(console.log('There was an issue with the API call'))
+      .then((response) => {
+        this.setState({
+          weather: response,
+          temperature: response.list[0].temp.day,
+          humidity: response.list[0].humidity,
+          weatherDescription: response.list[0].weather[0].main,
+          cityName: response.city.name,
+        });
+      })
+      .catch(console.log('GetForeCast() failed'));
+  }
+
+  render() {
+    return (
+      <HttpsRedirect>
+        <div className="App">
+          <header className="App-header">
+            <CityForm value="Atlanta" callBack={this.formCallBack} />
+            <Today
+              location={this.state.cityName}
+              temperature={this.convertToFarenheit()}
+              weatherDescription={this.state.weatherDescription}
+              humidity={this.state.humidity}
+            />
+            <WeekForecast
+              temperature={this.temperatureArray()}
+              weather={this.state.weather}
+            />
+          </header>
+        </div>
+      </HttpsRedirect>
+    );
+  }
 }
 
 export default App;
