@@ -32,7 +32,7 @@ class App extends Component {
     return tempArray;
   }
 
-  convertToFarenheit() {
+  convertToFahrenheit() {
     return this.state.temperature == null
       ? null
       : kelvinToFahrenheit(this.state.temperature).toFixed(1);
@@ -77,7 +77,7 @@ class App extends Component {
             <Today
               location={this.state.cityName}
               country={this.state.country}
-              temperature={this.convertToFarenheit()}
+              temperature={this.convertToFahrenheit()}
               weatherDescription={this.state.weatherDescription}
               weatherImage={this.state.weatherImage}
               humidity={this.state.humidity}
