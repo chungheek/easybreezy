@@ -30,7 +30,7 @@ class App extends Component {
     return tempArray;
   }
 
-  convertToFarenheit() {
+  convertToFahrenheit() {
     return this.state.temperature == null
       ? null
       : kelvinToFahrenheit(this.state.temperature).toFixed(1);
@@ -72,7 +72,7 @@ class App extends Component {
             <CityForm value="Atlanta" callBack={this.formCallBack} />
             <Today
               location={this.state.cityName}
-              temperature={this.convertToFarenheit()}
+              temperature={this.convertToFahrenheit()}
               weatherDescription={this.state.weatherDescription}
               humidity={this.state.humidity}
             />
