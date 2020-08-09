@@ -17,6 +17,7 @@ class App extends Component {
       humidity: null,
       weatherDescription: null,
       cityName: null,
+      weatherID: null
     };
   }
 
@@ -58,7 +59,7 @@ class App extends Component {
           temperature: response.list[0].temp.day,
           humidity: response.list[0].humidity,
           weatherDescription: response.list[0].weather[0].main,
-          cityName: response.city.name,
+          cityName: response.city.name
         });
       })
       .catch(console.log('GetForeCast() failed'));
@@ -74,6 +75,7 @@ class App extends Component {
               location={this.state.cityName}
               temperature={this.convertToFarenheit()}
               weatherDescription={this.state.weatherDescription}
+              weatherImage={this.state.weatherImage}
               humidity={this.state.humidity}
             />
             <WeekForecast
