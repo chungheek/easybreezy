@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import Temperature from '../Temperature/Temperature';
 import ForecastDay from '../ForecastDay/ForecastDay';
 import './WeekForecast.scss';
 

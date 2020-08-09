@@ -26,6 +26,7 @@ class CityForm extends Component {
   render() {
     return (
       <form className="city-form" onSubmit={this.handleSubmit}>
+        <h1>Easy Breezy Weather</h1>
         Please enter a city name: <br />
         <input
           type="text"

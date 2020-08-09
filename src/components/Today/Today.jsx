@@ -10,9 +10,10 @@ import Toggle from '../Toggle/Toggle';
 const Today = (props) => {
   
   return (
+    props.humidity && (
     <div className="today-container">
       <h1>Today's Forecast</h1>
-      <p>{props.location}</p>
+      <p>{props.location}, {props.country}</p>
       <WeatherDescription weatherDescription={props.weatherDescription} />
       <Temperature temperature={props.temperature} />
       <WeatherImage weatherImage={props.weatherImage} />
@@ -20,6 +21,7 @@ const Today = (props) => {
       Feels like:
       <Toggle temp={temp.main.feels_like} />
     </div>
+    )
   );
 };
 
