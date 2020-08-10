@@ -14,7 +14,7 @@ class ForecastDay extends Component {
     var stringDay = mm + '/' + dd + '/' + yyyy;
 
     return (
-      <div className="forecastday">
+      <div className="forecast-day">
         {stringDay}
         <WeatherDescription
           weatherDescription={this.props.weatherDescription}
