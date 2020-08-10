@@ -17,5 +17,5 @@ export let kelvinToCelsius = (tempInK) => {
 
 //you apparently can't get directly from K to F; you have to convert to C first :)
 export let kelvinToFahrenheit = (tempInK) => {
-    return celsiusToFahrenheit(kelvinToCelsius(tempInK));
+  return celsiusToFahrenheit(kelvinToCelsius(tempInK));
 };

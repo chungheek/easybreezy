@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './CityForm.scss';
+import './ZipForm.scss';
 
-class CityForm extends Component {
+class ZipForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: props.value,
+      zipCode: props.value,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -14,22 +14,22 @@ class CityForm extends Component {
 
   handleChange(event) {
     this.setState({
-      location: event.target.value,
+      zipCode: event.target.value,
     });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.callBack(this.state.location);
+    this.props.callBack(this.state.zipCode);
   }
 
   render() {
     return (
-      <form className="city-form" onSubmit={this.handleSubmit}>
-        Please enter a city name: <br />
+      <form className="zip-form" onSubmit={this.handleSubmit}>
+        Please enter a ZIP code: <br />
         <input
           type="text"
-          value={this.state.location}
+          value={this.state.zipCode}
           onChange={this.handleChange}
         />
         <input type="submit" value="Submit" />
@@ -38,4 +38,4 @@ class CityForm extends Component {
   }
 }
 
-export default CityForm;
+export default ZipForm;
