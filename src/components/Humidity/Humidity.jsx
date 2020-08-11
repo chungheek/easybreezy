@@ -6,7 +6,7 @@ class Humidity extends React.Component {
   render() {
     return (
       <div className="humid">
-        <img src={humidity} alt="humidity" />
+        <img class="humidity" src={humidity} alt="humidity" />
         Humidity: {this.props.humidity}%<br />
       </div>
     );

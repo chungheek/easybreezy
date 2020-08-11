@@ -17,6 +17,8 @@ class App extends Component {
       humidity: null,
       weatherDescription: null,
       cityName: null,
+      weatherImage: null, 
+      country: null
     };
   }
 
@@ -58,7 +60,9 @@ class App extends Component {
           temperature: response.list[0].temp.day,
           humidity: response.list[0].humidity,
           weatherDescription: response.list[0].weather[0].main,
-          cityName: response.city.name,
+          cityName: response.city.name, 
+          weatherImage: response.list[0].weather[0].icon, 
+          country: response.city.country
         });
       })
       .catch(console.log('GetForeCast() failed'));
@@ -72,8 +76,10 @@ class App extends Component {
             <CityForm value="Atlanta" callBack={this.formCallBack} />
             <Today
               location={this.state.cityName}
-              temperature={this.convertToFahrenheit()}
+              country={this.state.country}
+              temperature={this.convertToFarenheit()}
               weatherDescription={this.state.weatherDescription}
+              weatherImage={this.state.weatherImage}
               humidity={this.state.humidity}
             />
             <WeekForecast
