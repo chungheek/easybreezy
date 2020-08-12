@@ -32,7 +32,7 @@ class Toggle extends Component {
           {celsiusTemp}°
           <br />
           <button
-            class="actual-toggle"
+            className="actual-toggle"
             type="checkbox"
             onClick={this.toggleCelsius}
           >
@@ -46,7 +46,7 @@ class Toggle extends Component {
           {fahrenheitTemp}°
           <br />
           <button
-            class="actual-toggle"
+            className="actual-toggle"
             type="checkbox"
             onClick={this.toggleCelsius}
           >
