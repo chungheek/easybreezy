@@ -11,7 +11,7 @@ class App extends Component {
     super();
     this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
     this.state = {
-      location: 'Atlanta',
+      location: '',
       temperature: null,
       weather: null,
       humidity: null,
@@ -20,6 +20,7 @@ class App extends Component {
       weatherImage: null,
       country: null,
       rain: null,
+      error: false,
     };
   }
 
@@ -84,6 +85,7 @@ class App extends Component {
           weatherImage: response.list[0].weather[0].icon,
           country: response.city.country,
           rain: response.list[0].rain ? response.list[0].rain : null,
+          error: false,
         });
       })
       .catch((error) => {
@@ -98,6 +100,7 @@ class App extends Component {
           weatherImage: null,
           country: null,
           rain: null,
+          error: true
         });
       });
   }
@@ -107,7 +110,7 @@ class App extends Component {
       <HttpsRedirect>
         <div className="App">
           <header className="App-header">
-            <CityForm value="Atlanta" callBack={this.formCallBack} />
+            <CityForm value="Atlanta" callBack={this.formCallBack} error={this.state.error} />
             <Today
               location={this.state.cityName}
               country={this.state.country}

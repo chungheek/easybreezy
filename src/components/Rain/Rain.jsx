@@ -11,10 +11,8 @@ class Rain extends Component {
   render() {
     return (
       <div>
-        <div>
-          <img className="rain-img" src={rainImg} alt="humidity" />
-          Rain: {this.rain()} (mm)<br />
-        </div>
+        <img className="rain-img" src={rainImg} alt="humidity" />
+        Rain: {this.rain()} (mm)<br />
       </div>
     )
   }

@@ -1,4 +1,10 @@
 .city-form {
   font-size: 16px;
   font-family: 'Helvetica';
+
+  &__error {
+    color: red;
+    margin-left: 10px;
+    font-size: 1rem;
+  }
 }
