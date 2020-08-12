@@ -4,6 +4,7 @@ import WeatherDescription from '../WeatherDescription/WeatherDescription';
 import Rain from '../Rain/Rain';
 import './ForecastDay.scss';
 import Humidity from '../Humidity/Humidity';
+import Wind from '../Wind/Wind'
 
 class ForecastDay extends Component {
   render() {
@@ -24,6 +25,7 @@ class ForecastDay extends Component {
         <Temperature temperature={this.props.temperature} />
         <Humidity humidity={this.props.humidity} />
         <Rain rain={this.props.rain} />
+        <Wind speed={this.props.speed} />
       </div>
     );
   }

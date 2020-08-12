@@ -11,6 +11,7 @@ class WeekForecast extends Component {
     const humidity = this.props.humidity;
     const rain = this.props.rain;
     const weather = this.props.weather;
+    const speed = this.props.wind;
 
     return (
       temperature && (
@@ -23,6 +24,7 @@ class WeekForecast extends Component {
             humidity={humidity[1]}
             rain={rain[1]}
             weatherDescription={weather.list[1].weather[0].main}
+            speed={speed[1]}
           />
           <br />
           <ForecastDay
@@ -32,6 +34,7 @@ class WeekForecast extends Component {
             humidity={humidity[2]}
             rain={rain[2]}
             weatherDescription={weather.list[2].weather[0].main}
+            speed={speed[2]}
           />
           <br />
           <ForecastDay
@@ -41,6 +44,7 @@ class WeekForecast extends Component {
             humidity={humidity[3]}
             rain={rain[3]}
             weatherDescription={weather.list[3].weather[0].main}
+            speed={speed[3]}
           />
           <br />
           <ForecastDay
@@ -50,6 +54,7 @@ class WeekForecast extends Component {
             humidity={humidity[4]}
             rain={rain[4]}
             weatherDescription={weather.list[4].weather[0].main}
+            speed={speed[4]}
           />
           <br />
           <ForecastDay
@@ -59,6 +64,7 @@ class WeekForecast extends Component {
             humidity={humidity[5]}
             rain={rain[5]}
             weatherDescription={weather.list[5].weather[0].main}
+            speed={speed[5]}
           />
           <br />
           <ForecastDay
@@ -68,6 +74,7 @@ class WeekForecast extends Component {
             humidity={humidity[6]}
             rain={rain[6]}
             weatherDescription={weather.list[6].weather[0].main}
+            speed={speed[6]}
           />
           <br />
         </div>
