@@ -17,8 +17,9 @@ class App extends Component {
       humidity: null,
       weatherDescription: null,
       cityName: null,
-      weatherImage: null, 
-      country: null
+      weatherImage: null,
+      country: null,
+      rain: null,
     };
   }
 
@@ -30,6 +31,26 @@ class App extends Component {
       tempArray.push(kelvinToFahrenheit(temp).toFixed(1));
     }
     return tempArray;
+  }
+  
+  humidityArray() {
+    var humArray = [];
+    if (this.state.weather === null) return null;
+    for (var i = 0; i < 7; i++) {
+      let hum = this.state.weather.list[i].rain;
+      humArray.push(hum);
+    }
+    return humArray;
+  }
+
+  rainArray() {
+    var rainArray = [];
+    if (this.state.weather === null) return null;
+    for (var i = 0; i < 7; i++) {
+      let rain = this.state.weather.list[i].humidity;
+      rainArray.push(rain);
+    }
+    return rainArray;
   }
 
   convertToFahrenheit() {
@@ -53,19 +74,32 @@ class App extends Component {
       process.env.REACT_APP_ID;
     fetch(url)
       .then((response) => response.json())
-      .catch(console.log('There was an issue with the API call'))
       .then((response) => {
         this.setState({
           weather: response,
           temperature: response.list[0].temp.day,
           humidity: response.list[0].humidity,
           weatherDescription: response.list[0].weather[0].main,
-          cityName: response.city.name, 
-          weatherImage: response.list[0].weather[0].icon, 
-          country: response.city.country
+          cityName: response.city.name,
+          weatherImage: response.list[0].weather[0].icon,
+          country: response.city.country,
+          rain: response.list[0].rain ? response.list[0].rain : null,
         });
       })
-      .catch(console.log('GetForeCast() failed'));
+      .catch((error) => {
+        console.log('There was an issue with the API call', error);
+        this.setState({
+          location: 'Atlanta',
+          temperature: null,
+          weather: null,
+          humidity: null,
+          weatherDescription: null,
+          cityName: null,
+          weatherImage: null,
+          country: null,
+          rain: null,
+        });
+      });
   }
 
   render() {
@@ -77,13 +111,16 @@ class App extends Component {
             <Today
               location={this.state.cityName}
               country={this.state.country}
-              temperature={this.convertToFarenheit()}
+              temperature={this.convertToFahrenheit()}
               weatherDescription={this.state.weatherDescription}
               weatherImage={this.state.weatherImage}
               humidity={this.state.humidity}
+              rain={this.state.rain}
             />
             <WeekForecast
               temperature={this.temperatureArray()}
+              rain={this.rainArray()}
+              humidity={this.humidityArray()}
               weather={this.state.weather}
             />
           </header>

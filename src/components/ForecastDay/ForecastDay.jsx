@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Temperature from '../Temperature/Temperature';
-import './ForecastDay.scss';
 import WeatherDescription from '../WeatherDescription/WeatherDescription';
+import Rain from '../Rain/Rain';
+import './ForecastDay.scss';
+import Humidity from '../Humidity/Humidity';
 
 class ForecastDay extends Component {
   render() {
@@ -20,6 +22,8 @@ class ForecastDay extends Component {
           weatherDescription={this.props.weatherDescription}
         />
         <Temperature temperature={this.props.temperature} />
+        <Humidity humidity={this.props.humidity} />
+        <Rain rain={this.props.rain} />
       </div>
     );
   }
