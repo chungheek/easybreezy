@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import Temperature from '../Temperature/Temperature';
-import './ForecastDay.scss';
 import WeatherDescription from '../WeatherDescription/WeatherDescription';
+import Rain from '../Rain/Rain';
+import './ForecastDay.scss';
+import Humidity from '../Humidity/Humidity';
+import Wind from '../Wind/Wind'
+import SunriseSunset from '../SunriseSunset/SunriseSunset';
 
 class ForecastDay extends Component {
   render() {
@@ -14,12 +18,17 @@ class ForecastDay extends Component {
     var stringDay = mm + '/' + dd + '/' + yyyy;
 
     return (
-      <div className="forecastday">
+      <div className="forecast-day">
         {stringDay}
+        <hr></hr>
         <WeatherDescription
           weatherDescription={this.props.weatherDescription}
         />
         <Temperature temperature={this.props.temperature} />
+        <Humidity humidity={this.props.humidity} />
+        <Rain rain={this.props.rain} />
+        <Wind speed={this.props.speed} />
+        <SunriseSunset sunrise={this.props.sunrise} sunset={this.props.sunset} />
       </div>
     );
   }
