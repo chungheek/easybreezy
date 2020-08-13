@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import HttpsRedirect from 'react-https-redirect';
 import './App.css';
 import Today from './components/Today/Today';
 import WeekForecast from './components/WeekForecast/WeekForecast';
@@ -20,7 +21,7 @@ class App extends Component {
       country: null,
       rain: null,
       error: false,
-      speed: null
+      speed: null,
     };
   }
 
@@ -96,7 +97,7 @@ class App extends Component {
           country: response.city.country,
           rain: response.list[0].rain ? response.list[0].rain : null,
           error: false,
-          speed: response.list[0].speed
+          speed: response.list[0].speed,
         });
       })
       .catch((error) => {
@@ -112,35 +113,41 @@ class App extends Component {
           country: null,
           rain: null,
           error: true,
-          speed: null
+          speed: null,
         });
       });
   }
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <CityForm value="Atlanta" callBack={this.formCallBack} error={this.state.error} />
-          <Today
-            location={this.state.cityName}
-            country={this.state.country}
-            temperature={this.convertToFahrenheit()}
-            weatherDescription={this.state.weatherDescription}
-            weatherImage={this.state.weatherImage}
-            humidity={this.state.humidity}
-            rain={this.state.rain}
-            speed={this.state.speed}
-          />
-          <WeekForecast
-            temperature={this.temperatureArray()}
-            rain={this.rainArray()}
-            humidity={this.humidityArray()}
-            weather={this.state.weather}
-            wind={this.windArray()}
-          />
-        </header>
-      </div>
+      <HttpsRedirect>
+        <div className="App">
+          <header className="App-header">
+            <CityForm
+              value="Atlanta"
+              callBack={this.formCallBack}
+              error={this.state.error}
+            />
+            <Today
+              location={this.state.cityName}
+              country={this.state.country}
+              temperature={this.convertToFahrenheit()}
+              weatherDescription={this.state.weatherDescription}
+              weatherImage={this.state.weatherImage}
+              humidity={this.state.humidity}
+              rain={this.state.rain}
+              speed={this.state.speed}
+            />
+            <WeekForecast
+              temperature={this.temperatureArray()}
+              rain={this.rainArray()}
+              humidity={this.humidityArray()}
+              weather={this.state.weather}
+              wind={this.windArray()}
+            />
+          </header>
+        </div>
+      </HttpsRedirect>
     );
   }
 }
