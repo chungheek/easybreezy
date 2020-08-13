@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { fahrenheitToCelsius } from './tempScaleConversions';
 import './Toggle.scss';
-import Today from '../Today/Today'
-import WeekForecast from '../WeekForecast/WeekForecast'
+import Today from '../Today/Today';
+import WeekForecast from '../WeekForecast/WeekForecast';
 
 class Toggle extends Component {
   constructor(props) {
@@ -15,13 +15,13 @@ class Toggle extends Component {
 
   setCelsiusArray() {
     var celsiusArray = [];
-    for(let temperature of this.props.temperatureArray) {
-        temperature = fahrenheitToCelsius(temperature).toFixed(1);
-        celsiusArray.push(temperature);
+    for (let temperature of this.props.temperatureArray) {
+      temperature = fahrenheitToCelsius(temperature).toFixed(1);
+      celsiusArray.push(temperature);
     }
     return celsiusArray;
   }
-  
+
   toggleCelsius() {
     if (this.state.celsius === true) {
       this.setState({
@@ -45,7 +45,7 @@ class Toggle extends Component {
           >
             Click for Fahrenheit!
           </button>
-          <Today 
+          <Today
             location={this.props.location}
             country={this.props.country}
             temperature={fahrenheitToCelsius(this.props.temperature).toFixed(1)}
@@ -54,18 +54,18 @@ class Toggle extends Component {
             humidity={this.props.humidity}
             rain={this.props.rain}
             speed={this.props.speed}
-            sunrise={this.state.sunrise}
-            sunset={this.state.sunset}
+            sunriseArray={this.props.sunriseArray}
+            sunsetArray={this.props.sunsetArray}
           />
           <WeekForecast
-              temperatureArray={this.setCelsiusArray()}
-              rainArray={this.props.rainArray}
-              humidityArray={this.props.humidityArray}
-              weather={this.props.weather}
-              windArray={this.props.windArray}
-              sunriseArray={this.props.sunriseArray}
-              sunsetArray={this.props.sunsetArray}
-            />
+            temperatureArray={this.setCelsiusArray()}
+            rainArray={this.props.rainArray}
+            humidityArray={this.props.humidityArray}
+            weather={this.props.weather}
+            windArray={this.props.windArray}
+            sunriseArray={this.props.sunriseArray}
+            sunsetArray={this.props.sunsetArray}
+          />
         </div>
       );
     } else {
@@ -80,7 +80,7 @@ class Toggle extends Component {
             Click for Celsius!
           </button>
           <br></br>
-          <Today 
+          <Today
             location={this.props.location}
             country={this.props.country}
             temperature={this.props.temperature}
@@ -89,18 +89,18 @@ class Toggle extends Component {
             humidity={this.props.humidity}
             rain={this.props.rain}
             speed={this.props.speed}
-            sunriseArray={this.state.sunrise}
-            sunsetArray={this.state.sunset}
+            sunriseArray={this.props.sunriseArray}
+            sunsetArray={this.props.sunsetArray}
           />
           <WeekForecast
-              temperatureArray={this.props.temperatureArray}
-              rainArray={this.props.rainArray}
-              humidityArray={this.props.humidityArray}
-              weather={this.props.weather}
-              windArray={this.props.windArray}
-              sunriseArray={this.props.sunriseArray}
-              sunsetArray={this.props.sunsetArray}
-            />
+            temperatureArray={this.props.temperatureArray}
+            rainArray={this.props.rainArray}
+            humidityArray={this.props.humidityArray}
+            weather={this.props.weather}
+            windArray={this.props.windArray}
+            sunriseArray={this.props.sunriseArray}
+            sunsetArray={this.props.sunsetArray}
+          />
         </div>
       );
     }

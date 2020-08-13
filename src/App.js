@@ -159,7 +159,7 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <CityForm
-              value="Atlanta"
+              value=""
               callBack={this.formCallBack}
               error={this.state.error}
             />

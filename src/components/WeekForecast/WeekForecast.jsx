@@ -19,6 +19,7 @@ class WeekForecast extends Component {
       temperature && (
         <div className="forecast">
           Next 6 Days:
+          <br />
           <ForecastDay
             day={day}
             pad={1}

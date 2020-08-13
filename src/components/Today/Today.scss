@@ -2,14 +2,13 @@
   display: grid;
   background-color: navy;
   color: black;
-  width: 80%;
-  grid-template-columns: auto auto;
   margin: 1em auto 1em auto;
-  padding: 1em 0 1em 0;
+  padding: 1em 1em 1em 1em;
+  border-radius: 10px;
 }
 
 .grid-item {
-  width: 90%;
+  width: 100%;
   text-align: center;
   margin: auto;
   padding-top: 1em;
