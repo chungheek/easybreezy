@@ -20,6 +20,7 @@ class App extends Component {
       country: null,
       rain: null,
       error: false,
+      speed: null
     };
   }
 
@@ -51,6 +52,16 @@ class App extends Component {
       rainArray.push(rain);
     }
     return rainArray;
+  }
+
+  windArray() {
+    var windArray = [];
+    if (this.state.weather === null) return null;
+    for (var i = 0; i < 7; i++) {
+      let wind = this.state.weather.list[i].speed;
+      windArray.push(wind);
+    }
+    return windArray;
   }
 
   convertToFahrenheit() {
@@ -85,6 +96,7 @@ class App extends Component {
           country: response.city.country,
           rain: response.list[0].rain ? response.list[0].rain : null,
           error: false,
+          speed: response.list[0].speed
         });
       })
       .catch((error) => {
@@ -100,6 +112,7 @@ class App extends Component {
           country: null,
           rain: null,
           error: true,
+          speed: null
         });
       });
   }
@@ -108,11 +121,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <CityForm
-            value="Atlanta"
-            callBack={this.formCallBack}
-            error={this.state.error}
-          />
+          <CityForm value="Atlanta" callBack={this.formCallBack} error={this.state.error} />
           <Today
             location={this.state.cityName}
             country={this.state.country}
@@ -121,12 +130,14 @@ class App extends Component {
             weatherImage={this.state.weatherImage}
             humidity={this.state.humidity}
             rain={this.state.rain}
+            speed={this.state.speed}
           />
           <WeekForecast
             temperature={this.temperatureArray()}
             rain={this.rainArray()}
             humidity={this.humidityArray()}
             weather={this.state.weather}
+            wind={this.windArray()}
           />
         </header>
       </div>
