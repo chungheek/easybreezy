@@ -15,16 +15,15 @@ const Today = (props) => {
         <div className="grid-item">
           Today's Forecast:
           <hr></hr>
-          {props.location}, {props.country}
           <WeatherDescription weatherDescription={props.weatherDescription} />
           <WeatherImage weatherImage={props.weatherImage} />
+          <Rain rain={props.rain} />
         </div>
         <div className="grid-item">
           Weather Info:
           <hr></hr>
           <Temperature temperature={props.temperature} />
           <Humidity humidity={props.humidity} />
-          <Rain rain={props.rain} />
           <Wind speed={props.speed} />
         </div>
       </div>

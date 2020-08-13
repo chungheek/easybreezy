@@ -1,11 +1,12 @@
 .today-container {
   display: grid;
-  background-color: navy;
+  background-color: white;
   color: black;
   width: 80%;
   grid-template-columns: auto auto;
   margin: 1em auto 1em auto;
   padding: 1em 0 1em 0;
+  border: 1px solid navy;
 }
 
 .grid-item {
