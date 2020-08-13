@@ -39,7 +39,7 @@ class App extends Component {
     var humArray = [];
     if (this.state.weather === null) return null;
     for (var i = 0; i < 7; i++) {
-      let hum = this.state.weather.list[i].rain;
+      let hum = this.state.weather.list[i].humidity;
       humArray.push(hum);
     }
     return humArray;
@@ -49,7 +49,7 @@ class App extends Component {
     var rainArray = [];
     if (this.state.weather === null) return null;
     for (var i = 0; i < 7; i++) {
-      let rain = this.state.weather.list[i].humidity;
+      let rain = this.state.weather.list[i].rain;
       rainArray.push(rain);
     }
     return rainArray;
