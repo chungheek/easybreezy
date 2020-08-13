@@ -7,11 +7,11 @@ import './WeekForecast.scss';
 class WeekForecast extends Component {
   render() {
     var day = new Date();
-    const temperature = this.props.temperature;
-    const humidity = this.props.humidity;
-    const rain = this.props.rain;
+    const temperature = this.props.temperatureArray;
+    const humidity = this.props.humidityArray;
+    const rain = this.props.rainArray;
     const weather = this.props.weather;
-    const speed = this.props.wind;
+    const speed = this.props.windArray;
 
     return (
       temperature && (
