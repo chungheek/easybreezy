@@ -5,11 +5,25 @@ import SunriseSunsetImg from '../images/sunrise-sunset.png';
 export default class SunriseSunset extends Component {
 
   sunrise() {
-    return this.props.sunrise ? this.props.sunrise : '6 am';
+    if (!this.props.sunrise) return '---';
+
+    const sunriseDate = new Date(this.props.sunrise * 1000);
+    let hh = sunriseDate.getHours();
+    let mm = sunriseDate.getMinutes().toString().padStart(2, '0');
+    let ampm = 'AM';
+    if (hh >= 12) {hh -= 12; ampm='AM'};
+    return `${hh}:${mm} ${ampm}`;
   }
 
   sunset() {
-      return this.props.sunset ? this.props.sunset: '6 pm';
+    if (!this.props.sunset) return '---';
+
+    const sunsetDate = new Date(this.props.sunset * 1000);
+    let hh = sunsetDate.getHours();
+    let mm = sunsetDate.getMinutes().toString().padStart(2, '0');
+    let ampm = 'AM';
+    if (hh >= 12) {hh -= 12; ampm='PM'};
+    return `${hh}:${mm} ${ampm}`;
   }
 
   render() {

@@ -8,6 +8,7 @@ import WeatherDescription from '../WeatherDescription/WeatherDescription';
 import Toggle from '../Toggle/Toggle';
 import Rain from '../Rain/Rain';
 import Wind from '../Wind/Wind';
+import SunriseSunset from '../SunriseSunset/SunriseSunset';
 
 const Today = (props) => {
 
@@ -24,6 +25,7 @@ const Today = (props) => {
         <Humidity humidity={props.humidity} />
         <Rain rain={props.rain} />
         <Wind speed={props.speed} />
+        <SunriseSunset sunrise={props.sunrise} sunset={props.sunset} />
         Feels like: <Toggle temp={temp.main.feels_like} />
       </div>
     )

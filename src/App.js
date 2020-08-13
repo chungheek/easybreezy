@@ -45,6 +45,16 @@ class App extends Component {
     return humArray;
   }
 
+  forecastArray(paramName) {
+    var forecastArray = [];
+    if (this.state.weather === null) return null;
+    for (var i = 0; i < 7; i++) {
+      let  item = this.state.weather.list[i][paramName];
+      forecastArray.push(item);
+    }
+    return forecastArray;
+  }
+
   rainArray() {
     var rainArray = [];
     if (this.state.weather === null) return null;
@@ -98,6 +108,8 @@ class App extends Component {
           rain: response.list[0].rain ? response.list[0].rain : null,
           error: false,
           speed: response.list[0].speed,
+          sunrise: response.list[0].sunrise,
+          sunset: response.list[0].sunset,
         });
       })
       .catch((error) => {
@@ -114,6 +126,8 @@ class App extends Component {
           rain: null,
           error: true,
           speed: null,
+          sunrise: null,
+          sunset: null
         });
       });
   }
@@ -137,6 +151,8 @@ class App extends Component {
               humidity={this.state.humidity}
               rain={this.state.rain}
               speed={this.state.speed}
+              sunrise={this.state.sunrise}
+              sunset={this.state.sunset}
             />
             <WeekForecast
               temperature={this.temperatureArray()}
@@ -144,6 +160,8 @@ class App extends Component {
               humidity={this.humidityArray()}
               weather={this.state.weather}
               wind={this.windArray()}
+              sunrise={this.forecastArray('sunrise')}
+              sunset={this.forecastArray('sunset')}
             />
           </header>
         </div>
