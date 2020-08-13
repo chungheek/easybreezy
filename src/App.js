@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import HttpsRedirect from 'react-https-redirect';
 import './App.css';
-import Today from './components/Today/Today';
-import WeekForecast from './components/WeekForecast/WeekForecast';
 import CityForm from './components/CityForm/CityForm';
 import { kelvinToFahrenheit } from './components/Toggle/tempScaleConversions';
+import Toggle from './components/Toggle/Toggle';
 
 class App extends Component {
   constructor() {
@@ -22,6 +21,7 @@ class App extends Component {
       rain: null,
       error: false,
       speed: null,
+      toggle: false
     };
   }
 
@@ -98,6 +98,7 @@ class App extends Component {
           rain: response.list[0].rain ? response.list[0].rain : null,
           error: false,
           speed: response.list[0].speed,
+          toggle: true
         });
       })
       .catch((error) => {
@@ -119,6 +120,24 @@ class App extends Component {
   }
 
   render() {
+    let toggle;
+    if(this.state.toggle === true) {
+      toggle = <Toggle
+                location={this.state.cityName}
+                country={this.state.country}
+                temperature={this.convertToFahrenheit()}
+                weatherDescription={this.state.weatherDescription}
+                weatherImage={this.state.weatherImage}
+                humidity={this.state.humidity}
+                rain={this.state.rain}
+                speed={this.state.speed}
+                temperatureArray={this.temperatureArray()}
+                rainArray={this.rainArray()}
+                humidityArray={this.humidityArray()}
+                weather={this.state.weather}
+                windArray={this.windArray()}
+              /> 
+    }
     return (
       <HttpsRedirect>
         <div className="App">
@@ -128,23 +147,7 @@ class App extends Component {
               callBack={this.formCallBack}
               error={this.state.error}
             />
-            <Today
-              location={this.state.cityName}
-              country={this.state.country}
-              temperature={this.convertToFahrenheit()}
-              weatherDescription={this.state.weatherDescription}
-              weatherImage={this.state.weatherImage}
-              humidity={this.state.humidity}
-              rain={this.state.rain}
-              speed={this.state.speed}
-            />
-            <WeekForecast
-              temperature={this.temperatureArray()}
-              rain={this.rainArray()}
-              humidity={this.humidityArray()}
-              weather={this.state.weather}
-              wind={this.windArray()}
-            />
+            {toggle}
           </header>
         </div>
       </HttpsRedirect>

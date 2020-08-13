@@ -12,7 +12,7 @@ class Humidity extends Component {
     return (
       <div className="humid">
         <img className="humidity" src={humidity} alt="humidity" />
-        Humidity: {this.humidity()}%<br />
+        Humidity: {this.humidity()}%
       </div>
     );
   }
