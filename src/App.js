@@ -45,6 +45,16 @@ class App extends Component {
     return humArray;
   }
 
+  forecastArray(paramName) {
+    var forecastArray = [];
+    if (this.state.weather === null) return null;
+    for (var i = 0; i < 7; i++) {
+      let  item = this.state.weather.list[i][paramName];
+      forecastArray.push(item);
+    }
+    return forecastArray;
+  }
+
   rainArray() {
     var rainArray = [];
     if (this.state.weather === null) return null;
@@ -98,6 +108,8 @@ class App extends Component {
           rain: response.list[0].rain ? response.list[0].rain : null,
           error: false,
           speed: response.list[0].speed,
+          sunrise: response.list[0].sunrise,
+          sunset: response.list[0].sunset,
           toggle: true
         });
       })
@@ -115,6 +127,8 @@ class App extends Component {
           rain: null,
           error: true,
           speed: null,
+          sunrise: null,
+          sunset: null
         });
       });
   }
@@ -136,6 +150,8 @@ class App extends Component {
                 humidityArray={this.humidityArray()}
                 weather={this.state.weather}
                 windArray={this.windArray()}
+                sunsetArray = {this.forecastArray('sunset')}
+                sunriseArray = {this.forecastArray('sunrise')}
               /> 
     }
     return (
@@ -143,7 +159,7 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <CityForm
-              value="Atlanta"
+              value=""
               callBack={this.formCallBack}
               error={this.state.error}
             />
