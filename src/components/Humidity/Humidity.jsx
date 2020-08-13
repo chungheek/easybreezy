@@ -1,16 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Humidity.scss';
 import humidity from '../images/humidity.png';
 
-class Humidity extends React.Component {
+class Humidity extends Component {
+
+  humidity() {
+    return this.props.humidity ? this.props.humidity : 0;
+  }
+
   render() {
     return (
       <div className="humid">
-        <img class="humidity" src={humidity} alt="humidity" />
-        Humidity: {this.props.humidity}%<br />
+        <img className="humidity" src={humidity} alt="humidity" />
+        Humidity: {this.humidity()}%<br />
       </div>
     );
   }
-}
+};
 
 export default Humidity;
