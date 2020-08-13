@@ -37,6 +37,7 @@ class Toggle extends Component {
     if (this.state.celsius) {
       return (
         <div className="toggle">
+          <br></br>
           <button
             className="actual-toggle"
             type="checkbox"
@@ -66,6 +67,7 @@ class Toggle extends Component {
     } else {
       return (
         <div className="toggle">
+          <br></br>
           <button
             className="actual-toggle"
             type="checkbox"
@@ -73,6 +75,7 @@ class Toggle extends Component {
           >
             Click for Celsius!
           </button>
+          <br></br>
           <Today 
             location={this.props.location}
             country={this.props.country}

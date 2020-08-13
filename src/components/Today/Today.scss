@@ -1,9 +1,23 @@
 .today-container {
-  font-size: 1em;
-  font-family: 'Helvetica';
-  background-color: #596273;
-  width: 80vw;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 20px;
+  display: grid;
+  background-color: navy;
+  color: black;
+  width: 80%;
+  grid-template-columns: auto auto;
+  margin: 1em auto 1em auto;
+  padding: 1em 0 1em 0;
 }
+
+.grid-item {
+  width: 90%;
+  text-align: center;
+  margin: auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background-color: white;
+}
+
+hr {
+  width: 90%;
+}
+

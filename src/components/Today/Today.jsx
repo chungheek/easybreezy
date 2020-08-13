@@ -12,16 +12,21 @@ const Today = (props) => {
   return (
     props.humidity && (
       <div className="today-container">
-        <h1>Today's Forecast</h1>
-        <p>
+        <div className="grid-item">
+          Today's Forecast:
+          <hr></hr>
           {props.location}, {props.country}
-        </p>
-        <WeatherDescription weatherDescription={props.weatherDescription} />
-        <Temperature temperature={props.temperature} />
-        <WeatherImage weatherImage={props.weatherImage} />
-        <Humidity humidity={props.humidity} />
-        <Rain rain={props.rain} />
-        <Wind speed={props.speed} />
+          <WeatherDescription weatherDescription={props.weatherDescription} />
+          <WeatherImage weatherImage={props.weatherImage} />
+        </div>
+        <div className="grid-item">
+          Weather Info:
+          <hr></hr>
+          <Temperature temperature={props.temperature} />
+          <Humidity humidity={props.humidity} />
+          <Rain rain={props.rain} />
+          <Wind speed={props.speed} />
+        </div>
       </div>
     )
   );
