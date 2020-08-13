@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { kelvinToCelsius, celsiusToFahrenheit } from './tempScaleConversions';
+import { fahrenheitToCelsius } from './tempScaleConversions';
 import './Toggle.scss';
+import Today from '../Today/Today'
+import WeekForecast from '../WeekForecast/WeekForecast'
 
 class Toggle extends Component {
   constructor(props) {
@@ -11,6 +13,15 @@ class Toggle extends Component {
     this.toggleCelsius = this.toggleCelsius.bind(this);
   }
 
+  setCelsiusArray() {
+    var celsiusArray = [];
+    for(let temperature of this.props.temperatureArray) {
+        temperature = fahrenheitToCelsius(temperature).toFixed(1);
+        celsiusArray.push(temperature);
+    }
+    return celsiusArray;
+  }
+  
   toggleCelsius() {
     if (this.state.celsius === true) {
       this.setState({
@@ -23,14 +34,10 @@ class Toggle extends Component {
     }
   }
   render() {
-    const celsiusTemp = kelvinToCelsius(this.props.temp).toFixed(1);
-    const fahrenheitTemp = celsiusToFahrenheit(celsiusTemp).toFixed(1);
-
     if (this.state.celsius) {
       return (
         <div className="toggle">
-          {celsiusTemp}°
-          <br />
+          <br></br>
           <button
             className="actual-toggle"
             type="checkbox"
@@ -38,13 +45,33 @@ class Toggle extends Component {
           >
             Click for Fahrenheit!
           </button>
+          <Today 
+            location={this.props.location}
+            country={this.props.country}
+            temperature={fahrenheitToCelsius(this.props.temperature).toFixed(1)}
+            weatherDescription={this.props.weatherDescription}
+            weatherImage={this.props.weatherImage}
+            humidity={this.props.humidity}
+            rain={this.props.rain}
+            speed={this.props.speed}
+            sunrise={this.state.sunrise}
+            sunset={this.state.sunset}
+          />
+          <WeekForecast
+              temperatureArray={this.setCelsiusArray()}
+              rainArray={this.props.rainArray}
+              humidityArray={this.props.humidityArray}
+              weather={this.props.weather}
+              windArray={this.props.windArray}
+              sunriseArray={this.props.sunriseArray}
+              sunsetArray={this.props.sunsetArray}
+            />
         </div>
       );
     } else {
       return (
         <div className="toggle">
-          {fahrenheitTemp}°
-          <br />
+          <br></br>
           <button
             className="actual-toggle"
             type="checkbox"
@@ -52,6 +79,28 @@ class Toggle extends Component {
           >
             Click for Celsius!
           </button>
+          <br></br>
+          <Today 
+            location={this.props.location}
+            country={this.props.country}
+            temperature={this.props.temperature}
+            weatherDescription={this.props.weatherDescription}
+            weatherImage={this.props.weatherImage}
+            humidity={this.props.humidity}
+            rain={this.props.rain}
+            speed={this.props.speed}
+            sunriseArray={this.state.sunrise}
+            sunsetArray={this.state.sunset}
+          />
+          <WeekForecast
+              temperatureArray={this.props.temperatureArray}
+              rainArray={this.props.rainArray}
+              humidityArray={this.props.humidityArray}
+              weather={this.props.weather}
+              windArray={this.props.windArray}
+              sunriseArray={this.props.sunriseArray}
+              sunsetArray={this.props.sunsetArray}
+            />
         </div>
       );
     }

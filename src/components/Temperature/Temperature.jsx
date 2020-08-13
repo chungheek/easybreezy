@@ -6,7 +6,7 @@ const Temperature = (props) => {
     props.temperature && (
       <div>
         <div className="temp">
-          {props.temperature}°<br />
+          {props.temperature}°
         </div>
       </div>
     )
