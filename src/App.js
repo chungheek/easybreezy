@@ -21,7 +21,7 @@ class App extends Component {
       country: null,
       rain: null,
       error: false,
-      speed: null
+      speed: null,
     };
   }
 
@@ -34,7 +34,7 @@ class App extends Component {
     }
     return tempArray;
   }
-  
+
   humidityArray() {
     var humArray = [];
     if (this.state.weather === null) return null;
@@ -97,13 +97,13 @@ class App extends Component {
           country: response.city.country,
           rain: response.list[0].rain ? response.list[0].rain : null,
           error: false,
-          speed: response.list[0].speed
+          speed: response.list[0].speed,
         });
       })
       .catch((error) => {
         console.log('There was an issue with the API call', error);
         this.setState({
-          location: 'Atlanta',
+          location: '',
           temperature: null,
           weather: null,
           humidity: null,
@@ -113,7 +113,7 @@ class App extends Component {
           country: null,
           rain: null,
           error: true,
-          speed: null
+          speed: null,
         });
       });
   }
@@ -123,7 +123,11 @@ class App extends Component {
       <HttpsRedirect>
         <div className="App">
           <header className="App-header">
-            <CityForm value="Atlanta" callBack={this.formCallBack} error={this.state.error} />
+            <CityForm
+              value="Atlanta"
+              callBack={this.formCallBack}
+              error={this.state.error}
+            />
             <Today
               location={this.state.cityName}
               country={this.state.country}
