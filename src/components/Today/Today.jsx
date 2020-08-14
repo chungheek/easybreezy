@@ -10,9 +10,6 @@ import SunriseSunset from '../SunriseSunset/SunriseSunset';
 
 class Today extends Component {
   render() {
-    const sunrise = this.props.sunriseArray;
-    const sunset = this.props.sunsetArray;
-
     return (
       this.props.humidity && (
         <div className="today-container">
@@ -32,7 +29,11 @@ class Today extends Component {
             <Humidity humidity={this.props.humidity} />
             <Rain rain={this.props.rain} />
             <Wind speed={this.props.speed} />
-            <SunriseSunset sunrise={sunrise[0]} sunset={sunset[0]} />
+            <SunriseSunset 
+              sunrise = {this.props.sunriseArray[0]} 
+              sunset = {this.props.sunsetArray[0]} 
+              destTimeZone = {this.props.destTimeZone} 
+            />
           </div>
         </div>
       )
