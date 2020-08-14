@@ -14,11 +14,12 @@ class WeekForecast extends Component {
     const speed = this.props.windArray;
     const sunrise = this.props.sunriseArray;
     const sunset = this.props.sunsetArray;
+    const destTimeZone = this.props.destTimeZone;
 
     return (
       temperature && (
         <div className="forecast">
-          Next 6 Days:
+          <h2>Next 6 Days:</h2>
           <br />
           <ForecastDay
             day={day}
@@ -28,6 +29,7 @@ class WeekForecast extends Component {
             rain={rain[1]}
             weatherDescription={weather.list[1].weather[0].main}
             speed={speed[1]}
+            destTimeZone = {destTimeZone}
             sunrise={sunrise[1]}
             sunset={sunset[1]}
           />
@@ -40,6 +42,7 @@ class WeekForecast extends Component {
             rain={rain[2]}
             weatherDescription={weather.list[2].weather[0].main}
             speed={speed[2]}
+            destTimeZone = {destTimeZone}
             sunrise={sunrise[2]}
             sunset={sunset[2]}
           />
@@ -52,6 +55,7 @@ class WeekForecast extends Component {
             rain={rain[3]}
             weatherDescription={weather.list[3].weather[0].main}
             speed={speed[3]}
+            destTimeZone = {destTimeZone}
             sunrise={sunrise[3]}
             sunset={sunset[3]}
           />
@@ -64,6 +68,7 @@ class WeekForecast extends Component {
             rain={rain[4]}
             weatherDescription={weather.list[4].weather[0].main}
             speed={speed[4]}
+            destTimeZone = {destTimeZone}
             sunrise={sunrise[4]}
             sunset={sunset[4]}
           />
@@ -76,6 +81,7 @@ class WeekForecast extends Component {
             rain={rain[5]}
             weatherDescription={weather.list[5].weather[0].main}
             speed={speed[5]}
+            destTimeZone = {destTimeZone}
             sunrise={sunrise[5]}
             sunset={sunset[5]}
           />
@@ -88,6 +94,7 @@ class WeekForecast extends Component {
             rain={rain[6]}
             weatherDescription={weather.list[6].weather[0].main}
             speed={speed[6]}
+            destTimeZone = {destTimeZone}
             sunrise={sunrise[6]}
             sunset={sunset[6]}
           />

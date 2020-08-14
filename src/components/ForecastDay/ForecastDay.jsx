@@ -28,7 +28,11 @@ class ForecastDay extends Component {
         <Humidity humidity={this.props.humidity} />
         <Rain rain={this.props.rain} />
         <Wind speed={this.props.speed} />
-        <SunriseSunset sunrise={this.props.sunrise} sunset={this.props.sunset} />
+        <SunriseSunset 
+          sunrise={this.props.sunrise} 
+          sunset={this.props.sunset} 
+          destTimeZone = {this.props.destTimeZone} 
+        />
       </div>
     );
   }
