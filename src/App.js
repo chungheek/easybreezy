@@ -88,6 +88,8 @@ class App extends Component {
   formCallBack = (locationData) => {
     this.getForecast(locationData);
   };
+  
+
 
   getForecast(locationData) {
     const url =
@@ -110,6 +112,7 @@ class App extends Component {
           speed: response.list[0].speed,
           sunrise: response.list[0].sunrise,
           sunset: response.list[0].sunset,
+          destTimeZone: response.city.timezone,
           toggle: true
         });
       })
@@ -128,7 +131,8 @@ class App extends Component {
           error: true,
           speed: null,
           sunrise: null,
-          sunset: null
+          sunset: null,
+          timezone: 0
         });
       });
   }
@@ -152,6 +156,7 @@ class App extends Component {
                 windArray={this.windArray()}
                 sunsetArray = {this.forecastArray('sunset')}
                 sunriseArray = {this.forecastArray('sunrise')}
+                destTimeZone = {this.state.destTimeZone}
               /> 
     }
     return (

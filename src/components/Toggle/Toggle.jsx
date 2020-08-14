@@ -54,8 +54,9 @@ class Toggle extends Component {
             humidity={this.props.humidity}
             rain={this.props.rain}
             speed={this.props.speed}
-            sunriseArray={this.props.sunriseArray}
-            sunsetArray={this.props.sunsetArray}
+            sunriseArray = {this.props.sunriseArray}
+            sunsetArray = {this.props.sunsetArray}
+            destTimeZone = {this.props.destTimeZone}
           />
           <WeekForecast
             temperatureArray={this.setCelsiusArray()}
@@ -65,6 +66,7 @@ class Toggle extends Component {
             windArray={this.props.windArray}
             sunriseArray={this.props.sunriseArray}
             sunsetArray={this.props.sunsetArray}
+            destTimeZone = {this.props.destTimeZone}
           />
         </div>
       );
@@ -91,6 +93,7 @@ class Toggle extends Component {
             speed={this.props.speed}
             sunriseArray={this.props.sunriseArray}
             sunsetArray={this.props.sunsetArray}
+            destTimeZone = {this.props.destTimeZone}
           />
           <WeekForecast
             temperatureArray={this.props.temperatureArray}
@@ -100,6 +103,7 @@ class Toggle extends Component {
             windArray={this.props.windArray}
             sunriseArray={this.props.sunriseArray}
             sunsetArray={this.props.sunsetArray}
+            destTimeZone = {this.props.destTimeZone}
           />
         </div>
       );

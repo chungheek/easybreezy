@@ -6,7 +6,14 @@ export default class SunriseSunset extends Component {
   sunrise() {
     if (!this.props.sunrise) return '---';
 
-    const sunriseDate = new Date(this.props.sunrise * 1000);
+    const destTime = this.props.sunrise;
+    const destZone = this.props.destTimeZone;
+
+    // offset for the current location
+    var d = new Date();
+    const localZone = d.getTimezoneOffset() * -60;
+
+    const sunriseDate = new Date((destTime - localZone + destZone) * 1000);
     let hh = sunriseDate.getHours();
     let mm = sunriseDate.getMinutes().toString().padStart(2, '0');
     let ampm = 'AM';
@@ -20,7 +27,14 @@ export default class SunriseSunset extends Component {
   sunset() {
     if (!this.props.sunset) return '---';
 
-    const sunsetDate = new Date(this.props.sunset * 1000);
+    const destTime = this.props.sunset;
+    const destZone = this.props.destTimeZone;
+
+    // offset for the current location
+    var d = new Date();
+    const localZone = d.getTimezoneOffset() * -60;
+
+    const sunsetDate = new Date((destTime - localZone + destZone) * 1000);
     let hh = sunsetDate.getHours();
     let mm = sunsetDate.getMinutes().toString().padStart(2, '0');
     let ampm = 'AM';
