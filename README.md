@@ -8,7 +8,7 @@ CS 361 Team 25 Weather App - Team Easy Breezy
 
 # Important notes
 * Due to time constraints and resources we are making the API call from React.
-* This is highly <b>NOT</b> recommended and the suggested implmentation would be 
+  * This is highly <b>NOT</b> recommended and the suggested implmentation would be 
 a node backend where the API call would take place and the response thrown to 
 the React front-end.
 
